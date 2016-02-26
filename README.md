@@ -1,2 +1,2 @@
 # packet-simulation
-Switching Element SImulation
+Switching Element Simulation
