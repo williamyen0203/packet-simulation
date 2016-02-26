@@ -16,9 +16,41 @@ $(document).ready(function() {
   // run simulation
   simulate();
 
+  // initialize graph data
+  var data = {
+    labels: getIntervals(),
+    datasets: [
+      {
+        label: "Busy slots",
+        fillColor: "rgba(55, 186, 167, 0.2)",
+        strokeColor: "rgba(55, 86, 167, 1)",
+        pointColor: "rgba(55, 86, 167, 1)",
+        pointStrokeColor: "white",
+        pointHighlightFill: "white",
+        pointHighlightStroke: "rgba(55, 86, 167, 1)",
+        data: busySlots
+      },
+      {
+        label: "Dropped packets",
+        fillColor: "rgba(55, 186, 167, 0.2)",
+        strokeColor: "rgba(55, 86, 167, 1)",
+        pointColor: "rgba(55, 86, 167, 1)",
+        pointStrokeColor: "white",
+        pointHighlightFill: "white",
+        pointHighlightStroke: "rgba(55, 86, 167, 1)",
+        data: droppedPackets
+      }
+    ]
+  };
+
+  var options = {
+    responsive: true,
+    multiTooltipTemplate: "<%= value + ' packets' %>"
+  };
+
   // create busy graph
-  var ctx = $("#busy-chart").get(0).getContext("2d");
-  var busyChart = new Chart(ctx);
+  var ctx = $("#busy-graph").get(0).getContext("2d");
+  var busyChart = new Chart(ctx).Line(data, options);
 });
 
 var simulate = function() {
@@ -27,7 +59,7 @@ var simulate = function() {
     var numBusy = 0;
     var numDropped = 0;
     for (var slot = 1; slot <= 10; slot++) {
-      if (Math.random() <= i) {
+      if (Math.random() < i) {
         numArrival++
       }
     }
@@ -39,4 +71,13 @@ var simulate = function() {
 
   console.log(busySlots);
   console.log(droppedPackets);
+}
+
+var getIntervals = function() {
+  var array = [];
+  for (var i = 2; i < 100; i += 2) {
+    array.push(i / 100);
+  }
+  console.log(array);
+  return array;
 }
