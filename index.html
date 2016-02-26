@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Packet Switching Element Simulation</title>
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="javascript/javascript.js"></script>
-  </head>
-  <body>
-    test
-  </body>
+
+<head>
+  <title>Packet Switching Element Simulation</title>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Chart.js -->
+  <link rel="stylesheet" href="https://cdnjs.com/libraries/chart.js">
+  <!-- Custom CSS & JS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <script src="javascript/javascript.js"></script>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="container">
+      <h1>Packet Switching Element Simulation</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+
+      <!-- graph -->
+      <div class="graph">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12">
+            <canvas id="busy-graph" class="graph"></canvas>
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            <canvas id="dropped-graph" class="graph"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- user input -->
+      <div class="row">
+        <div class="col-sm-12">
+          <form action="" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="probability-input">Probability</label>
+              <div class="col-sm-8">
+                <div id="probability-slider"></div>
+              </div>
+              <label id="probability-slider-label" class="col-sm-2 control-label" for="probability-input"></label>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</body>
+
 </html>

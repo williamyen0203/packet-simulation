@@ -1,0 +1,12 @@
+canvas {
+  width: 100%;
+  height: auto; }
+
+#probability-slider {
+  text-align: center;
+  margin-top: 10px; }
+
+.control-label {
+  text-align: center !important; }
+
+/*# sourceMappingURL=layout.css.map */
