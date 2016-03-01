@@ -1,8 +1,11 @@
-#probability-slider .ui-slider-range {
+.slider .ui-slider-range {
   background-color: blue; }
-#probability-slider .ui-slider-handle {
+.slider .ui-slider-handle {
   background: white; }
-#probability-slider .ui-state-focus {
+.slider .ui-state-focus {
   outline: 0; }
+
+.select-one-error {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

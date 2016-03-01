@@ -7,15 +7,43 @@ canvas {
   height: auto;
 }
 
-////////////////////////
-// PROBABILITY SLIDER //
-////////////////////////
+////////////
+// LEGEND //
+////////////
 
-#probability-slider {
+.chart-legend {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+
+  li {
+    list-style-type: none;
+    span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+    }
+  }
+}
+
+///////////////////
+// INPUT SLIDERS //
+///////////////////
+
+.slider {
   text-align: center;
   margin-top: 10px;
 }
 
 .control-label {
-  text-align: center !important;
+  text-align: left !important;
+}
+
+///////////
+// ERROR //
+///////////
+
+.select-one-error {
+  margin-top: 20px;
 }

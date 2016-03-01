@@ -10,7 +10,7 @@ canvas {
 // PROBABILITY SLIDER //
 ////////////////////////
 
-#probability-slider {
+.slider {
   .ui-slider-range {
     background-color: blue;
   }
@@ -23,4 +23,12 @@ canvas {
   .ui-state-focus {
     outline: 0;
   }
+}
+
+///////////
+// ERROR //
+///////////
+
+.select-one-error {
+  display: none;
 }
