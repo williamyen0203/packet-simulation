@@ -1,3 +1,5 @@
+var
+
 var busySlots = [];
 var droppedPackets = [];
 
@@ -14,6 +16,7 @@ $(document).ready(function() {
   $("#probability-slider-label").html($("#probability-slider").slider("value") + " %");
 
   // run simulation
+  initializeArrays();
   simulate();
 
   // initialize graph data
@@ -22,7 +25,7 @@ $(document).ready(function() {
     datasets: [
       {
         label: "Busy slots",
-        fillColor: "rgba(55, 186, 167, 0.2)",
+        fillColor: "rgba(55, 86, 167, 0.2)",
         strokeColor: "rgba(55, 86, 167, 1)",
         pointColor: "rgba(55, 86, 167, 1)",
         pointStrokeColor: "white",
@@ -33,11 +36,11 @@ $(document).ready(function() {
       {
         label: "Dropped packets",
         fillColor: "rgba(55, 186, 167, 0.2)",
-        strokeColor: "rgba(55, 86, 167, 1)",
-        pointColor: "rgba(55, 86, 167, 1)",
+        strokeColor: "rgba(55, 186, 167, 1)",
+        pointColor: "rgba(55, 186, 167, 1)",
         pointStrokeColor: "white",
         pointHighlightFill: "white",
-        pointHighlightStroke: "rgba(55, 86, 167, 1)",
+        pointHighlightStroke: "rgba(55, 186, 167, 1)",
         data: droppedPackets
       }
     ]
@@ -54,30 +57,45 @@ $(document).ready(function() {
 });
 
 var simulate = function() {
-  for (var i = 0.02; i <= 1; i += 0.02) {
-    var numArrival = 0;
-    var numBusy = 0;
-    var numDropped = 0;
-    for (var slot = 1; slot <= 10; slot++) {
-      if (Math.random() < i) {
-        numArrival++
+  var timesToRun = 10;
+  // run timesToRun simulations to get average
+  for (var i = 0; i < timesToRun; i++) {
+    // simulate for each probability, from p = 0 to p = 1, in steps of 0.02
+    for (var j = 0; j <= 50; j += 1) {
+      var numArrival = 0;
+      // determine if packet arrives at certain slot
+      for (var slot = 1; slot <= 10; slot++) {
+        if (Math.random() < (j / 50)) {
+          numArrival++;
+        }
       }
+
+      // push values onto array
+      var numBusy = (numArrival <= 3) ? numArrival : 3;
+      busySlots[j] += numBusy;
+      var numDropped = (numArrival >= 3) ? numArrival - 3 : 0;
+      droppedPackets[j] += numDropped;
     }
-    numBusy = (numArrival <= 3) ? numArrival : 3;
-    busySlots.push(numBusy);
-    numDropped = (numArrival >= 3) ? numArrival - 3 : 0;
-    droppedPackets.push(numDropped);
   }
 
-  console.log(busySlots);
-  console.log(droppedPackets);
+  // average out number of busy slots and dropped packets
+  for (var i = 0; i < busySlots.length; i++) {
+    busySlots[i] /= timesToRun;
+    droppedPackets[i] /= timesToRun;
+  }
 }
 
 var getIntervals = function() {
   var array = [];
-  for (var i = 2; i < 100; i += 2) {
+  for (var i = 0; i <= 100; i += 2) {
     array.push(i / 100);
   }
-  console.log(array);
   return array;
+}
+
+var initializeArrays = function() {
+  for (var i = 0; i <= 50; i++) {
+    busySlots.push(0);
+    droppedPackets.push(0);
+  }
 }
