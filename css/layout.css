@@ -2,6 +2,17 @@ canvas {
   width: 100%;
   height: auto; }
 
+.y-axis {
+  transform: rotate(-90deg);
+  transform-origin: center center 0;
+  white-space: nowrap;
+  position: absolute;
+  left: 10px;
+  top: 40%; }
+
+.x-axis {
+  text-align: center; }
+
 .chart-legend {
   position: absolute;
   top: 40px;
@@ -13,6 +24,9 @@ canvas {
       width: 12px;
       height: 12px;
       margin-right: 5px; }
+
+.user-forms {
+  margin-top: 30px; }
 
 .slider {
   text-align: center;

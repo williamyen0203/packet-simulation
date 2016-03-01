@@ -32,14 +32,16 @@
         <!-- graph -->
         <div class="graph">
           <div class="row">
+            <div class="y-axis">Number of Packets</div>
             <div class="col-xs-12 canvas-container"></div>
           </div>
+          <div class="row x-axis">Probability (p)</div>
         </div>
 
         <!-- user input -->
-        <div class="row">
+        <div class="row user-forms">
           <!-- sliders -->
-          <div class="col-md-8 col-sm-12">
+          <div class="col-md-8 col-xs-12">
             <!-- number of simulations -->
             <form class="form-horizontal">
               <div class="form-group">
@@ -67,7 +69,7 @@
               </div>
             </form>
           </div>
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-4 col-xs-12">
             <div class="row">
               <!-- checkboxes -->
               <div class="col-md-6">
@@ -80,12 +82,12 @@
               </div>
               <!-- submit button -->
               <div class="col-md-6">
-                <button class="rerun-button btn btn-primary col-sm-12">Rerun Simulation</button><br><br>
-                <button class="defaults-button btn btn-info col-sm-12">Reset Defaults</button>
+                <button class="rerun-button btn btn-primary col-xs-12">Rerun Simulation</button><br><br>
+                <button class="defaults-button btn btn-info col-xs-12">Reset Defaults</button>
               </div>
             </div>
           </div>
-          <div class="select-one-error alert alert-danger col-md-4 col-sm-12">
+          <div class="select-one-error alert alert-danger col-md-4 col-xs-12">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
             At least one must be selected
